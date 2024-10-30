@@ -46,7 +46,7 @@ mark_outliers <- function(data_new, column) {
   Q3 <- quantile(data_new[[column]], 0.75, na.rm = TRUE)
   IQR <- Q3 - Q1
   
-  data$outliers <- ifelse(data_new[[column]] < (Q1 - 1.5 * IQR) | data_new[[column]] > (Q3 + 1.5 * IQR), TRUE, FALSE)
+  data_new$outliers <- ifelse(data_new[[column]] < (Q1 - 1.5 * IQR) | data_new[[column]] > (Q3 + 1.5 * IQR), TRUE, FALSE)
   
   return(data_new)
 }
